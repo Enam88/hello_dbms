@@ -1,0 +1,4 @@
+sources:
+https://www.slideshare.net/RamkumarRavichandran/taming-data-lake20150831v2
+https://www.traininghub.io/blog/a-detailed-road-map-to-data-warehouse-implementation
+http://www.unstructureddatatips.com/what-is-data-lakehouse/
