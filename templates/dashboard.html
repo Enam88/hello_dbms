@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css"> <!-- Reference to styles.css -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js CDN -->
+</head>
+<body>
+    <div class="chart-container">
+        <div class="chart">
+            <h2>Population Chart</h2>
+            <canvas id="populationChart" width="400" height="400"></canvas>
+        </div>
+        <div class="chart">
+            <h2>Literacy Chart</h2>
+            <canvas id="literacyChart" width="400" height="400"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Fetch data for Population Chart
+        fetch('/api/sample_country_data')
+            .then(response => response.json())
+            .then(data => {
+                // Process data and create chart
+                const ctx = document.getElementById('populationChart').getContext('2d');
+                const populationChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: data.map(item => item.Country),
+                        datasets: [{
+                            label: 'Population',
+                            data: data.map(item => item.Population),
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => console.error('Error:', error));
+
+        // Fetch data for Literacy Chart
+        fetch('/highest_literacy_countries')
+            .then(response => response.json())
+            .then(data => {
+                // Process data and create chart
+                const ctx = document.getElementById('literacyChart').getContext('2d');
+                const literacyChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: data.data.map(item => item.Country),
+                        datasets: [{
+                            label: 'Literacy',
+                            data: data.data.map(item => item.Literacy),
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>

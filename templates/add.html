@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Add New Entry{% endblock %}
+
+{% block content %}
+    <!-- Page Specific Content -->
+    <h2>Add New Entry</h2>
+    <!-- Example of a form for adding new entries -->
+    <form action="/path-to-add-handler" method="post">
+        <div class="form-group">
+            <label for="exampleField1">Field 1</label>
+            <input type="text" class="form-control" id="exampleField1" name="field1" placeholder="Enter Field 1">
+        </div>
+        <div class="form-group">
+            <label for="exampleField2">Field 2</label>
+            <input type="text" class="form-control" id="exampleField2" name="field2" placeholder="Enter Field 2">
+        </div>
+        <!-- Add more fields as needed -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}
