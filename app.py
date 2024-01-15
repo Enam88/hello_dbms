@@ -18,11 +18,7 @@ username = os.environ.get('username')
 password = os.environ.get('password')
 
 
-#SQL Server connection settings
-# server = 'WIN-LJ7C2L79T2K'
-# database = 'Countries'
-# username = 'sa'
-# password = 'MontRouge88#'
+
 
 
 
