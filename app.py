@@ -6,19 +6,23 @@ import os
 
 
 from models import db, Country, Energy, initialize_app
+from dotenv import load_dotenv
 
-# Define your config variables with default values
-# server = os.environ.get('server')
-# database = os.environ.get('database')
-# username = os.environ.get('username')
-# password = os.environ.get('password')
+# Load environment variables from .env file
+load_dotenv()
+
+# # Define your config variables with default values
+server = os.environ.get('server')
+database = os.environ.get('database')
+username = os.environ.get('username')
+password = os.environ.get('password')
 
 
 #SQL Server connection settings
-server = 'WIN-LJ7C2L79T2K'
-database = 'Countries'
-username = 'sa'
-password = 'MontRouge88#'
+# server = 'WIN-LJ7C2L79T2K'
+# database = 'Countries'
+# username = 'sa'
+# password = 'MontRouge88#'
 
 
 

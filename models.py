@@ -11,6 +11,7 @@ def initialize_app(app):
 
 
 app = Flask(__name__)
+# db = SQLAlchemy(app)
 
 
 class Country(db.Model):
